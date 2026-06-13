@@ -60,7 +60,7 @@
         background: #166534;
       }
       .text-shadow-sm {
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
       }
     </style>
   </head>
@@ -94,7 +94,7 @@
           </svg>
           <span
             class="text-xl font-bold tracking-wider bg-gradient-to-r from-emerald-300 to-green-100 bg-clip-text text-transparent font-serif"
-            >MY TALE</span
+            >GreenNovel</span
           >
         </a>
 
@@ -208,14 +208,13 @@
             class="text-3xl md:text-5xl font-extrabold font-serif leading-tight"
           >
             Nơi Ươm Mầm Những <br /><span class="text-emerald-400"
-              >Câu Chuyện của chính bạn</span
+              >Câu Chuyện Của Bạn</span
             >
           </h1>
           <p class="text-forest-200 text-sm md:text-base max-w-xl">
             Chào mừng bạn đến với thư viện truyện dịu nhẹ cho đôi mắt. Bạn có
-            thể tự viết truyện chữ hoặc đăng truyện tranh yêu thích, thêm chương
-            mới ngay tại giao diện quản trị và tận hưởng không gian đọc chuẩn
-            phong cách Eco.
+            thể tự viết truyện chữ hoặc đăng truyện tranh cực nhanh chóng mà
+            không cần bất kì thao tác nào khác.
           </p>
           <div
             class="flex flex-wrap gap-3 justify-center md:justify-start pt-2"
@@ -235,14 +234,13 @@
           </div>
         </div>
         <div class="md:w-1/3 flex justify-center">
-          <!-- Mascot / Graphic Book Concept in SVG -->
           <div
             class="w-48 h-64 md:w-56 md:h-72 bg-gradient-to-br from-emerald-600 to-forest-800 rounded-2xl shadow-2xl relative p-4 flex flex-col justify-between border-4 border-emerald-400 transform rotate-3 hover:rotate-0 transition-transform duration-500"
           >
             <div class="flex justify-between items-start">
-              <span class="text-xs font-bold text-emerald-300 tracking-wider"
-                >ECO WRITER & ART</span
-              >
+              <span class="text-xs font-bold text-emerald-300 tracking-wider">
+                THỰC HIỆN GIẤC MƠ
+              </span>
               <svg
                 class="w-6 h-6 text-emerald-300"
                 fill="none"
@@ -289,7 +287,6 @@
         <div
           class="bg-white p-4 rounded-xl shadow-sm border border-forest-100 space-y-4"
         >
-          <!-- Thao tác phân loại định dạng Truyện Chữ / Truyện Tranh -->
           <div class="flex flex-wrap border-b border-forest-100 pb-2 gap-2">
             <button
               id="typeFilterAll"
@@ -464,9 +461,9 @@
           <div class="md:w-1/4 flex flex-col items-center">
             <div
               id="detailCover"
-              class="w-48 h-64 rounded-xl shadow-xl flex items-center justify-center text-white text-center font-serif font-bold text-lg p-4 relative border-4 border-forest-100"
+              class="w-48 h-64 rounded-xl shadow-xl flex items-center justify-center text-white text-center font-serif font-bold text-lg p-4 relative border-4 border-forest-100 bg-cover bg-center overflow-hidden"
             >
-              <!-- Cover Content in JS -->
+              <!-- Cover Content loaded dynamically -->
             </div>
           </div>
 
@@ -496,8 +493,8 @@
                 <span class="font-semibold text-forest-800">Trạng thái:</span>
                 <span
                   id="detailStatus"
-                  class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-xs"
-                  >Hoàn thành</span
+                  class="font-bold px-2 py-0.5 rounded text-xs"
+                  >...</span
                 >
               </div>
             </div>
@@ -562,7 +559,7 @@
           </div>
         </div>
 
-        <!-- User Comments (Mock Section) -->
+        <!-- User Comments Section -->
         <div
           class="bg-white rounded-2xl shadow-sm border border-forest-100 p-6 md:p-8 space-y-6"
         >
@@ -755,25 +752,21 @@
                 >Màu Nền</label
               >
               <div class="flex gap-2">
-                <!-- Soft Cream/Yellow -->
                 <button
                   onclick="setReaderTheme('cream')"
                   class="w-8 h-8 rounded-full border border-orange-200 bg-[#fbf0db] transition transform hover:scale-110"
                   title="Màu Kem"
                 ></button>
-                <!-- Light Green -->
                 <button
                   onclick="setReaderTheme('mint')"
                   class="w-8 h-8 rounded-full border border-emerald-200 bg-[#ebfaeb] transition transform hover:scale-110"
                   title="Màu Mint"
                 ></button>
-                <!-- Forest Dark -->
                 <button
                   onclick="setReaderTheme('forest-dark')"
                   class="w-8 h-8 rounded-full border border-forest-950 bg-[#0d2215] transition transform hover:scale-110"
                   title="Rừng Thẳm"
                 ></button>
-                <!-- Pure White -->
                 <button
                   onclick="setReaderTheme('white')"
                   class="w-8 h-8 rounded-full border border-slate-300 bg-white transition transform hover:scale-110"
@@ -890,7 +883,7 @@
           </div>
           <div class="flex gap-2">
             <button
-              onclick="showStoryForm()"
+              onclick="showStoryForm(true)"
               class="bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold px-4 py-2 rounded-xl transition"
             >
               + Tạo Truyện Mới
@@ -1013,16 +1006,18 @@
           </div>
         </div>
 
-        <!-- ACTION FORM 1: Create Story -->
+        <!-- ACTION FORM 1: Create or Edit Story -->
         <div
           id="storyFormBlock"
           class="hidden bg-white rounded-2xl p-6 shadow-sm border border-emerald-100 space-y-4"
         >
           <h3
+            id="storyFormTitle"
             class="text-lg font-bold font-serif text-forest-900 border-b border-forest-100 pb-2"
           >
             ➕ Tạo Truyện Mới
           </h3>
+
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label class="block text-xs font-bold text-slate-700 mb-1"
@@ -1071,7 +1066,21 @@
             </div>
             <div>
               <label class="block text-xs font-bold text-slate-700 mb-1"
-                >Tông Màu Bìa (Gradient)</label
+                >Trạng thái phát hành *</label
+              >
+              <select
+                id="formStoryStatus"
+                class="w-full bg-slate-50 border border-slate-200 rounded-lg p-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              >
+                <option value="ongoing">
+                  Đang tiến hành (Chưa hoàn thành)
+                </option>
+                <option value="completed">Hoàn thành</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1"
+                >Tông Màu Bìa Mặc Định (Nếu không có ảnh bìa)</label
               >
               <select
                 id="formStoryCoverColor"
@@ -1094,6 +1103,72 @@
                 </option>
               </select>
             </div>
+
+            <!-- Khối tải ảnh bìa nâng cấp mới -->
+            <div
+              class="md:col-span-2 border border-forest-100 rounded-xl p-4 bg-forest-50/40 space-y-3"
+            >
+              <span
+                class="block text-xs font-bold text-forest-900 uppercase tracking-wider"
+                >🖼️ Ảnh Bìa Truyện (Nhập trực tiếp từ máy tính)</span
+              >
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div
+                  class="md:col-span-2 space-y-2 flex flex-col justify-center"
+                >
+                  <div
+                    class="border-2 border-dashed border-emerald-300 hover:border-emerald-500 rounded-xl p-4 text-center bg-white cursor-pointer transition relative group"
+                  >
+                    <input
+                      id="formStoryCoverFile"
+                      type="file"
+                      accept="image/*"
+                      onchange="handleStoryCoverFileSelect(event)"
+                      class="absolute inset-0 opacity-0 cursor-pointer"
+                    />
+                    <p class="text-xs font-semibold text-forest-900">
+                      📂 Chọn tệp ảnh bìa từ máy tính
+                    </p>
+                    <p class="text-[10px] text-slate-400 mt-1">
+                      Hỗ trợ các định dạng PNG, JPG, WEBP. Nên chọn ảnh bìa dạng
+                      đứng tỉ lệ 3:4.
+                    </p>
+                  </div>
+                  <div
+                    class="flex items-center justify-between text-[11px] text-slate-400"
+                  >
+                    <span
+                      >Nên dùng ảnh có dung lượng nhỏ hơn 2MB để tải nhanh
+                      nhất.</span
+                    >
+                    <button
+                      type="button"
+                      onclick="clearStoryCover()"
+                      class="text-red-600 hover:underline font-semibold"
+                    >
+                      Gỡ ảnh bìa
+                    </button>
+                  </div>
+                </div>
+                <!-- Khu vực Live Preview Ảnh bìa -->
+                <div
+                  class="flex flex-col items-center justify-center border border-forest-100 bg-white rounded-xl p-2"
+                >
+                  <span class="text-[10px] font-bold text-slate-500 mb-1"
+                    >Xem trước bìa</span
+                  >
+                  <div
+                    id="storyCoverPreviewBox"
+                    class="w-24 h-32 rounded bg-slate-100 border border-slate-300 flex items-center justify-center overflow-hidden"
+                  >
+                    <span class="text-[10px] text-slate-400 italic"
+                      >Mặc định</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div class="md:col-span-2">
               <label class="block text-xs font-bold text-slate-700 mb-1"
                 >Tóm Tắt Truyện *</label
@@ -1114,6 +1189,7 @@
               Hủy
             </button>
             <button
+              id="btnSaveStory"
               onclick="saveNewStory()"
               class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-5 py-2 rounded-lg transition shadow-md"
             >
@@ -1128,6 +1204,7 @@
           class="hidden bg-white rounded-2xl p-6 shadow-sm border border-emerald-100 space-y-4"
         >
           <h3
+            id="chapterFormTitle"
             class="text-lg font-bold font-serif text-forest-900 border-b border-forest-100 pb-2"
           >
             📝 Viết & Đăng Chương Mới
@@ -1173,7 +1250,6 @@
 
             <!-- Trường Soạn Thảo TRUYỆN TRANH -->
             <div id="chapterComicEditorDiv" class="hidden space-y-3">
-              <!-- Chọn cách tải ảnh: File hoặc URL -->
               <div
                 class="flex gap-2 p-1 bg-forest-100 rounded-lg text-xs font-bold max-w-sm"
               >
@@ -1295,11 +1371,71 @@
               Hủy
             </button>
             <button
+              id="btnSaveChapter"
               onclick="saveNewChapter()"
               class="bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold px-5 py-2 rounded-lg transition shadow-md"
             >
               Xuất Bản Chương
             </button>
+          </div>
+        </div>
+
+        <!-- CHAPTER MANAGEMENT PANEL (Chỉnh sửa / Xóa chương) -->
+        <div
+          id="chapterMgmtBlock"
+          class="hidden bg-white rounded-2xl p-6 border border-amber-100 shadow-md space-y-4"
+        >
+          <div
+            class="flex justify-between items-center border-b border-forest-100 pb-2"
+          >
+            <h3
+              class="text-lg font-bold font-serif text-forest-900 flex items-center gap-2"
+            >
+              <svg
+                class="w-5 h-5 text-amber-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+                ></path>
+              </svg>
+              Quản Lý Các Chương:
+              <span id="chapterMgmtStoryTitle" class="text-emerald-700"
+                >...</span
+              >
+            </h3>
+            <button
+              onclick="hideForm('chapterMgmtBlock')"
+              class="text-slate-400 hover:text-slate-600 text-xl font-bold"
+            >
+              &times;
+            </button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-sm border-collapse">
+              <thead>
+                <tr
+                  class="bg-forest-50 text-forest-800 font-bold uppercase text-[11px] tracking-wider border-b border-forest-100"
+                >
+                  <th class="p-3">Tiêu đề chương</th>
+                  <th class="p-3">Loại nội dung</th>
+                  <th class="p-3 text-right">Thao Tác</th>
+                </tr>
+              </thead>
+              <tbody
+                id="chapterMgmtListTable"
+                class="divide-y divide-forest-50"
+              >
+                <!-- Danh sách chương do JS nạp vào -->
+              </tbody>
+            </table>
           </div>
         </div>
 
@@ -1336,6 +1472,7 @@
                   <th class="p-3">Thông tin truyện</th>
                   <th class="p-3">Thể loại</th>
                   <th class="p-3">Số Chương</th>
+                  <th class="p-3">Trạng Thái</th>
                   <th class="p-3 text-right">Thao Tác</th>
                 </tr>
               </thead>
@@ -1347,6 +1484,65 @@
         </div>
       </section>
     </main>
+
+    <!-- CUSTOM CONFIRMATION DIALOG MODAL (Thay thế cho native alert & confirm) -->
+    <div
+      id="customConfirmModal"
+      class="hidden fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4"
+    >
+      <div
+        class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-emerald-100 space-y-4 transform scale-95 transition-transform duration-300"
+      >
+        <div class="flex items-start gap-3">
+          <div
+            class="w-10 h-10 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center flex-shrink-0"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <h4
+              id="confirmModalTitle"
+              class="text-base font-bold text-forest-950 font-serif"
+            >
+              Xác nhận hành động
+            </h4>
+            <p
+              id="confirmModalMessage"
+              class="text-sm text-slate-500 mt-1 leading-relaxed"
+            >
+              Bạn có thực sự chắc chắn muốn thực hiện thao tác này không?
+            </p>
+          </div>
+        </div>
+        <div class="flex justify-end gap-2 pt-2 border-t border-forest-50">
+          <button
+            id="btnConfirmCancel"
+            class="bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold px-4 py-2 rounded-lg transition"
+          >
+            Hủy bỏ
+          </button>
+          <button
+            id="btnConfirmOK"
+            class="bg-red-600 hover:bg-red-700 text-white text-xs font-semibold px-4 py-2 rounded-lg transition shadow-md"
+          >
+            Đồng ý
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer
@@ -1409,8 +1605,8 @@
       <div
         class="container mx-auto px-4 max-w-6xl mt-8 pt-6 border-t border-forest-900 text-center text-xs text-forest-400"
       >
-        &copy; 2026 My Tale. Được thiết kế lấy cảm hứng từ thiên nhiên và tình
-        yêu văn học.
+        &copy; 2026 GreenNovel. Được thiết kế lấy cảm hứng từ thiên nhiên và
+        tình yêu văn học.
       </div>
     </footer>
 
@@ -1423,10 +1619,12 @@
           title: "Thần Khí Rừng Thiêng",
           author: "Mộc Linh Tử",
           type: "text",
+          status: "ongoing",
           genres: ["Kỳ Ảo", "Mạo Hiểm", "Huyền Huyễn"],
           description:
             "Ngàn năm trước, Thần khí Linh Châu rơi xuống tâm linh hồ tạo ra một sinh giới kỳ ảo vô cùng trù phú. Tiêu Phong - một đốn củi nghèo khổ vô tình lạc vào kết giới này khi trốn chạy cơn dã thú dữ tợn. Ở đây cậu phát hiện cây đại thụ cổ xưa nhất đang héo tàn vì tà khí hắc ám dâng trào...",
           coverColor: "from-emerald-700 to-forest-950",
+          coverImage: "", // Không dùng ảnh bìa máy tính
           chapters: [
             {
               id: "chap-1-1",
@@ -1461,40 +1659,16 @@
           ],
         },
         {
-          id: "story-2",
-          title: "Hương Sắc Thảo Nguyên",
-          author: "Phong Diệp",
-          type: "text",
-          genres: ["Nhẹ Nhàng", "Đồng Quê", "Chữa Lành"],
-          description:
-            "Một bản tình ca mộc mạc về miền đất bình yên nơi biên cương xanh rì, nơi có những ngọn đồi chè mênh mông bạt ngàn đón nắng mai ấm áp và câu chuyện về cô bé Thảo Vy bắt đầu dựng xây lại trang trại thảo mộc xanh cho gia đình.",
-          coverColor: "from-green-500 to-teal-800",
-          chapters: [
-            {
-              id: "chap-2-1",
-              title: "Chương 1: Bình Minh Bên Đồi Chè",
-              content: `Tiếng chuông gió gõ lách cách ngoài ban công đánh thức Thảo Vy khỏi giấc ngủ êm đềm đầy mộng mị. Khi mở toang cánh cửa gỗ sồi, không khí tinh khiết mộc mạc ùa vào buồng phổi thơm dịu hương cỏ non đọng sương sớm.
-                        
-                        Phía xa xa dưới ánh bình minh dìu dịu vàng, đồi chè nhấp nhô xanh mượt kéo dài tận chân trời mây hồng nhạt. Sau biến cố gia đình ở phồn hoa phố thị, Vy mới nhận ra chỉ có mùi đất ấm áp này mới nâng niu bình yên trọn vẹn của tâm hồn khô cằn bấy lâu.`,
-            },
-          ],
-          comments: [
-            {
-              author: "Hồng Nhung",
-              text: "Trang web đọc rất thích, giao diện thân thiện, mong tác giả ra thêm chương mới sớm nhé!",
-              date: "13-06-2026",
-            },
-          ],
-        },
-        {
           id: "story-comic-1",
           title: "Bạch Hổ Minh Chủ (Truyện Tranh)",
           author: "Mộc Linh Quân",
           type: "comic",
+          status: "ongoing",
           genres: ["Kỳ Ảo", "Mạo Hiểm", "Hành Động"],
           description:
             "Tác phẩm truyện tranh dài kỳ tái hiện chuyến phiêu lưu bảo hộ vùng đất thiêng của Bạch Hổ Linh Thần. Những trang vẽ phong cảnh thiên nhiên hùng vĩ mộc mạc mang cảm hứng xanh lá mượt mà.",
           coverColor: "from-teal-600 to-emerald-900",
+          coverImage: "", // Không có ảnh bìa mặc định
           chapters: [
             {
               id: "chap-comic-1-1",
@@ -1516,18 +1690,27 @@
         },
       ];
 
-      /* ---------------- Khởi tạo trạng thái Hệ Thống ---------------- */
+      /* ---------------- State Management Properties ---------------- */
       let stories = [];
       let currentStoryId = null;
       let currentChapterIndex = 0;
       let activeView = "home"; // home, detail, reader, author-space
       let activeTypeFilter = "all"; // all, text, comic
 
-      // Trạng thái tải ảnh truyện tranh của tác giả
-      let activeComicUploadMethod = "local"; // local hoặc url
-      let tempComicBase64Files = []; // Mảng chứa chuỗi base64 của ảnh chọn từ máy tính
+      // Trạng thái edit tác phẩm và chương
+      let editingStoryId = null;
+      let editingChapterId = null;
+      let activeStoryIdForChapterMgmt = null;
 
-      // Cài đặt đọc mặc định
+      // Trạng thái tải ảnh (Tác giả)
+      let activeComicUploadMethod = "local";
+      let tempComicBase64Files = [];
+      let tempStoryCoverBase64 = ""; // Lưu trữ Base64 ảnh bìa của truyện đang tạo/edit
+
+      // Biến phục vụ Custom Dialog Modal
+      let confirmPromiseResolve = null;
+
+      // Cài đặt trình đọc
       let readerSettings = {
         font: "serif",
         size: 18,
@@ -1543,6 +1726,7 @@
         populateStorySelect();
         updateStats();
         setupReaderStyle();
+        initCustomDialog();
       };
 
       // Lấy dữ liệu từ LocalStorage hoặc gieo mặc định
@@ -1551,9 +1735,11 @@
         if (localData) {
           try {
             stories = JSON.parse(localData);
-            // Dọn dẹp dữ liệu cũ nếu chưa có thuộc tính 'type'
+            // Đồng bộ dữ liệu cũ
             stories.forEach((s) => {
               if (!s.type) s.type = "text";
+              if (!s.status) s.status = "ongoing";
+              if (s.coverImage === undefined) s.coverImage = "";
             });
           } catch (e) {
             stories = DEFAULT_STORIES;
@@ -1569,11 +1755,10 @@
         try {
           localStorage.setItem("greennovel_stories", JSON.stringify(stories));
         } catch (error) {
-          // Xảy ra khi LocalStorage bị đầy (vượt quá 5MB)
           showToast(
-            "⚠️ Lưu thất bại! Bộ nhớ trình duyệt bị đầy do tệp ảnh tải lên quá lớn. Bạn hãy nén bớt ảnh lại nhé.",
+            "⚠️ Lưu thất bại! Do tải lên file ảnh có dung lượng quá lớn làm quá tải bộ nhớ trình duyệt.",
           );
-          console.error("Storage full error: ", error);
+          console.error("Storage full: ", error);
         }
       }
 
@@ -1622,7 +1807,6 @@
       function filterType(type) {
         activeTypeFilter = type;
 
-        // Cập nhật giao diện tab active
         const btnAll = document.getElementById("typeFilterAll");
         const btnText = document.getElementById("typeFilterText");
         const btnComic = document.getElementById("typeFilterComic");
@@ -1749,15 +1933,27 @@
             "bg-white rounded-xl border border-forest-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between overflow-hidden group hover:-translate-y-1 cursor-pointer";
           card.onclick = () => openStoryDetail(story.id);
 
-          card.innerHTML = `
-                    <div>
-                        <!-- Bìa truyện mô phỏng -->
+          // Kiểm tra xem truyện có dùng ảnh bìa máy tính hay dùng màu gradient
+          let coverHtml = "";
+          if (story.coverImage) {
+            coverHtml = `
+                        <div class="h-44 bg-cover bg-center relative w-full group-hover:brightness-105 transition-all" style="background-image: url('${story.coverImage}')">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    `;
+          } else {
+            coverHtml = `
                         <div class="h-44 bg-gradient-to-br ${coverStyle} relative flex items-center justify-center p-3 text-white text-center font-serif font-bold text-base shadow-inner group-hover:brightness-105 transition-all">
                             <span class="text-shadow-sm line-clamp-2">${story.title}</span>
+                    `;
+          }
+
+          card.innerHTML = `
+                    <div>
+                        ${coverHtml}
                             <span class="absolute top-2 left-2 text-[9px] font-bold uppercase px-2 py-0.5 rounded shadow-sm ${typeBadgeColor}">${typeLabel}</span>
-                            <div class="absolute bottom-2 left-2 right-2 flex justify-between text-[10px] text-emerald-300 opacity-90 font-sans">
-                                <span class="truncate max-w-[120px]">${story.author}</span>
-                                <span>${totalChapters} chương</span>
+                            <div class="absolute bottom-2 left-2 right-2 flex justify-between text-[10px] text-emerald-100 font-sans">
+                                <span class="truncate max-w-[120px] font-semibold">${story.author}</span>
+                                <span class="font-bold text-white">${totalChapters} chương</span>
                             </div>
                         </div>
                         <!-- Thông tin chữ -->
@@ -1784,7 +1980,6 @@
         });
       }
 
-      // Mặc định hiển thị toàn bộ dựa theo bộ lọc loại truyện
       function renderStories() {
         let list = stories;
         if (activeTypeFilter !== "all") {
@@ -1805,8 +2000,16 @@
 
         // Nạp bìa truyện
         const coverDiv = document.getElementById("detailCover");
-        coverDiv.className = `w-48 h-64 rounded-xl shadow-xl flex items-center justify-center text-white text-center font-serif font-bold text-lg p-4 relative border-4 border-forest-100 bg-gradient-to-br ${story.coverColor || "from-emerald-700 to-forest-950"}`;
-        coverDiv.innerHTML = `<span class="text-shadow-sm text-xl">${story.title}</span>`;
+        if (story.coverImage) {
+          coverDiv.className =
+            "w-48 h-64 rounded-xl shadow-xl relative border-4 border-forest-100 bg-cover bg-center overflow-hidden";
+          coverDiv.style.backgroundImage = `url('${story.coverImage}')`;
+          coverDiv.innerHTML = ""; // Đã có ảnh bìa máy tính, không cần ghi đè tên truyện thô sơ
+        } else {
+          coverDiv.className = `w-48 h-64 rounded-xl shadow-xl flex items-center justify-center text-white text-center font-serif font-bold text-lg p-4 relative border-4 border-forest-100 bg-gradient-to-br ${story.coverColor || "from-emerald-700 to-forest-950"}`;
+          coverDiv.style.backgroundImage = "";
+          coverDiv.innerHTML = `<span class="text-shadow-sm text-xl">${story.title}</span>`;
+        }
 
         // Điền thông tin văn bản
         document.getElementById("detailTitle").textContent = story.title;
@@ -1817,6 +2020,18 @@
           totalChapters;
         document.getElementById("detailDescription").textContent =
           story.description;
+
+        // Thiết lập trạng thái hoạt động linh hoạt (Đang tiến hành / Hoàn thành)
+        const statusBox = document.getElementById("detailStatus");
+        if (story.status === "completed") {
+          statusBox.textContent = "Hoàn thành";
+          statusBox.className =
+            "bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-xs border border-emerald-200";
+        } else {
+          statusBox.textContent = "Đang tiến hành";
+          statusBox.className =
+            "bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded text-xs border border-amber-200";
+        }
 
         // Hiển thị định dạng truyện kèm thể loại
         const genreBox = document.getElementById("detailGenres");
@@ -1836,7 +2051,6 @@
           .join("");
         genreBox.innerHTML = genreHtml;
 
-        // Vô hiệu hóa nút đọc từ đầu nếu chưa có chương nào
         const btnFirst = document.getElementById("btnReadFirst");
         if (totalChapters === 0) {
           btnFirst.disabled = true;
@@ -1869,7 +2083,6 @@
           });
         }
 
-        // Nạp bình luận độc giả
         renderComments();
       }
 
@@ -1879,18 +2092,16 @@
           .scrollIntoView({ behavior: "smooth" });
       }
 
-      // Bắt đầu đọc chương đầu tiên
       function readFirstChapter() {
         startReading(0);
       }
 
-      // Đi tới giao diện đọc chương cụ thể
       function startReading(chapterIndex) {
         currentChapterIndex = chapterIndex;
         switchView("reader");
       }
 
-      /* MOCK NHẬN XÉT ĐỘC GIẢ */
+      /* ---------------- LOGIC BÌNH LUẬN ---------------- */
       function renderComments() {
         const story = stories.find((s) => s.id === currentStoryId);
         const list = document.getElementById("commentsList");
@@ -1927,7 +2138,7 @@
         const text = document.getElementById("commentContent").value.trim();
 
         if (!text) {
-          showToast("Bạn vui lòng nhập nội dung bình luận!");
+          showToast("⚠️ Bạn vui lòng nhập nội dung bình luận!");
           return;
         }
 
@@ -1947,9 +2158,8 @@
         saveToLocalStorage();
         renderComments();
 
-        // Reset form
         document.getElementById("commentContent").value = "";
-        showToast("Đăng bình luận thành công!");
+        showToast("✅ Đăng bình luận thành công!");
       }
 
       /* ---------------- LOGIC ĐỌC TRUYỆN (READER) ---------------- */
@@ -1957,7 +2167,6 @@
         const story = stories.find((s) => s.id === currentStoryId);
         if (!story) return;
 
-        // Gán tên truyện làm link quay về chi tiết
         const btnStory = document.getElementById("btnBackToStory");
         btnStory.textContent = story.title;
         btnStory.onclick = () => switchView("detail");
@@ -1970,10 +2179,8 @@
         document.getElementById("readerChapterTitle").textContent =
           chapter.title;
 
-        // Phân bổ nội dung hiển thị theo truyện chữ vs truyện tranh
         const bodyTextContainer = document.getElementById("readerBodyText");
         if (story.type === "comic") {
-          // Tối ưu hóa đọc truyện tranh cuộn dọc kiểu Webtoon
           const urls = chapter.comicUrls || [];
           if (urls.length === 0) {
             bodyTextContainer.innerHTML = `<p class="text-sm text-slate-500 italic py-8 text-center">Chương truyện tranh này hiện chưa có hình ảnh nào.</p>`;
@@ -1991,14 +2198,12 @@
             bodyTextContainer.innerHTML = imagesHtml;
           }
         } else {
-          // Đọc truyện chữ thông thường
           bodyTextContainer.innerHTML = chapter.content
             .split("\n")
             .map((p) => `<p class="mb-4">${p.trim()}</p>`)
             .join("");
         }
 
-        // Quản lý trạng thái nút trước/sau
         const prevBtn = document.getElementById("btnPrevChapter");
         const nextBtn = document.getElementById("btnNextChapter");
 
@@ -2036,7 +2241,7 @@
         }
       }
 
-      /* ĐIỀU CHỈNH TRÌNH ĐỌC (Fonts, Color, Size) */
+      /* ĐIỀU CHỈNH TRÌNH ĐỌC */
       function toggleReaderSettings() {
         const panel = document.getElementById("readerSettingsPanel");
         panel.classList.toggle("hidden");
@@ -2062,14 +2267,12 @@
         setupReaderStyle();
       }
 
-      // Áp dụng định dạng thực tế vào hộp đọc truyện
       function setupReaderStyle() {
         const box = document.getElementById("readerContentBox");
         const textBlock = document.getElementById("readerBodyText");
         if (!box || !textBlock) return;
 
-        // Phông chữ
-        textBlock.className = ""; // clear cũ
+        textBlock.className = "";
         if (readerSettings.font === "serif") {
           textBlock.classList.add("font-serif", "leading-relaxed", "space-y-4");
         } else if (readerSettings.font === "cozy") {
@@ -2078,10 +2281,8 @@
           textBlock.classList.add("font-sans", "leading-relaxed", "space-y-4");
         }
 
-        // Kích thước chữ
         textBlock.style.fontSize = `${readerSettings.size}px`;
 
-        // Màu chủ đề
         box.className =
           "rounded-2xl p-6 md:p-10 shadow-sm border min-h-[500px] transition-colors duration-300 ";
         if (readerSettings.theme === "cream") {
@@ -2099,7 +2300,6 @@
         } else if (readerSettings.theme === "white") {
           box.classList.add("bg-white", "text-slate-900", "border-slate-100");
         } else {
-          // mint mặc định
           box.classList.add(
             "bg-[#ebfaeb]",
             "text-emerald-950",
@@ -2123,9 +2323,13 @@
         document.getElementById("statCommentCount").textContent = cmtsCount;
       }
 
-      function showStoryForm() {
+      function showStoryForm(isNew = false) {
+        if (isNew) {
+          resetStoryForm();
+        }
         document.getElementById("storyFormBlock").classList.remove("hidden");
         document.getElementById("chapterFormBlock").classList.add("hidden");
+        document.getElementById("chapterMgmtBlock").classList.add("hidden");
         document
           .getElementById("storyFormBlock")
           .scrollIntoView({ behavior: "smooth" });
@@ -2135,12 +2339,25 @@
         populateStorySelect();
         if (stories.length === 0) {
           showToast(
-            "Bạn cần tạo ít nhất một bộ truyện trước khi viết chương mới!",
+            "⚠️ Bạn cần tạo ít nhất một bộ truyện trước khi viết chương mới!",
           );
           return;
         }
+        editingChapterId = null;
+        document.getElementById("chapterFormTitle").textContent =
+          "📝 Viết & Đăng Chương Mới";
+        document.getElementById("btnSaveChapter").textContent =
+          "Xuất Bản Chương";
+
+        // Reset inputs
+        document.getElementById("formChapterTitle").value = "";
+        document.getElementById("formChapterContent").value = "";
+        document.getElementById("formChapterComicUrls").value = "";
+        clearSelectedComicFiles();
+
         document.getElementById("chapterFormBlock").classList.remove("hidden");
         document.getElementById("storyFormBlock").classList.add("hidden");
+        document.getElementById("chapterMgmtBlock").classList.add("hidden");
         handleChapterFormTypeToggle();
         document
           .getElementById("chapterFormBlock")
@@ -2151,7 +2368,6 @@
         document.getElementById(formId).classList.add("hidden");
       }
 
-      // Tự động thay đổi input form khi chọn Truyện chữ / Truyện tranh
       function handleChapterFormTypeToggle() {
         const storyId = document.getElementById("formChapterStorySelect").value;
         if (!storyId) return;
@@ -2164,7 +2380,6 @@
         if (targetStory.type === "comic") {
           textDiv.classList.add("hidden");
           comicDiv.classList.remove("hidden");
-          // Reset tab upload về mặc định là 'local'
           setComicUploadMethod("local");
         } else {
           textDiv.classList.remove("hidden");
@@ -2172,7 +2387,67 @@
         }
       }
 
-      /* XỬ LÝ CHỌN ẢNH TỪ MÁY TÍNH */
+      /* ---------------- XỬ LÝ ẢNH BÌA TRUYỆN CỦA TÁC GIẢ ---------------- */
+      function handleStoryCoverFileSelect(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+
+        if (!file.type.match("image.*")) {
+          showToast("⚠️ Định dạng tệp phải là hình ảnh!");
+          return;
+        }
+
+        if (file.size > 2 * 1024 * 1024) {
+          showToast(
+            "⚠️ Khuyên dùng: Chọn ảnh dưới 2MB để tránh làm đầy dung lượng lưu trữ!",
+          );
+        }
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          tempStoryCoverBase64 = e.target.result;
+          updateStoryCoverPreview(tempStoryCoverBase64);
+          showToast("✅ Đã tải lên ảnh bìa máy tính thành công!");
+        };
+        reader.readAsDataURL(file);
+      }
+
+      function updateStoryCoverPreview(base64Data) {
+        const previewBox = document.getElementById("storyCoverPreviewBox");
+        if (base64Data) {
+          previewBox.innerHTML = `<img src="${base64Data}" class="w-full h-full object-cover">`;
+        } else {
+          previewBox.innerHTML = `<span class="text-[10px] text-slate-400 italic">Mặc định</span>`;
+        }
+      }
+
+      function clearStoryCover() {
+        tempStoryCoverBase64 = "";
+        updateStoryCoverPreview("");
+        document.getElementById("formStoryCoverFile").value = "";
+        showToast("🗑️ Đã gỡ bỏ ảnh bìa tùy chọn.");
+      }
+
+      function resetStoryForm() {
+        editingStoryId = null;
+        tempStoryCoverBase64 = "";
+        document.getElementById("storyFormTitle").textContent =
+          "➕ Tạo Truyện Mới";
+        document.getElementById("btnSaveStory").textContent = "Đăng Bản Thảo";
+
+        document.getElementById("formStoryTitle").value = "";
+        document.getElementById("formStoryAuthor").value = "";
+        document.getElementById("formStoryGenre").value = "";
+        document.getElementById("formStoryDesc").value = "";
+        document.getElementById("formStoryCoverColor").value =
+          "from-emerald-700 to-forest-950";
+        document.getElementById("formStoryType").value = "text";
+        document.getElementById("formStoryStatus").value = "ongoing";
+        document.getElementById("formStoryCoverFile").value = "";
+        updateStoryCoverPreview("");
+      }
+
+      /* ---------------- XỬ LÝ ẢNH TRANG TRUYỆN TRANH ---------------- */
       function setComicUploadMethod(method) {
         activeComicUploadMethod = method;
 
@@ -2198,32 +2473,28 @@
         }
       }
 
-      // Đọc các file ảnh từ máy tính thông qua FileReader
       function handleComicFilesSelect(event) {
         const files = event.target.files;
         if (!files || files.length === 0) return;
 
         let loadedCount = 0;
         const targetLoadCount = files.length;
-        showToast(`🔄 Đang tải lên & chuẩn bị ${targetLoadCount} ảnh...`);
+        showToast(`🔄 Đang nạp & mã hóa ${targetLoadCount} trang ảnh...`);
 
         for (let i = 0; i < files.length; i++) {
           const file = files[i];
 
-          // Chỉ nhận tệp là hình ảnh
           if (!file.type.match("image.*")) continue;
 
-          // Kiểm tra kích cỡ file để đưa ra khuyến nghị
           if (file.size > 1.5 * 1024 * 1024) {
             showToast(
-              "⚠️ Khuyên dùng: Hãy nén ảnh dưới 1.5MB để tránh quá tải bộ nhớ trình duyệt!",
+              "⚠️ Khuyên dùng: Hãy nén tệp ảnh dưới 1.5MB để tối ưu dung lượng!",
             );
           }
 
           const reader = new FileReader();
           reader.onload = function (e) {
             const base64String = e.target.result;
-            // Thêm thông tin file ảnh vào mảng tạm thời
             tempComicBase64Files.push({
               name: file.name,
               data: base64String,
@@ -2239,7 +2510,6 @@
         }
       }
 
-      // Vẽ các ảnh thu nhỏ xem trước
       function renderComicPreviews() {
         const container = document.getElementById("comicPreviewsContainer");
         const grid = document.getElementById("comicFilesPreview");
@@ -2272,21 +2542,17 @@
         });
       }
 
-      // Xóa một ảnh cụ thể ra khỏi danh sách đã chọn
       function removeSelectedComicFile(index) {
         tempComicBase64Files.splice(index, 1);
         renderComicPreviews();
       }
 
-      // Xóa sạch danh sách ảnh đã chọn
       function clearSelectedComicFiles() {
         tempComicBase64Files = [];
         renderComicPreviews();
         document.getElementById("formChapterComicFiles").value = "";
-        showToast("Đã xóa toàn bộ ảnh đã chọn.");
       }
 
-      // Tạo chuỗi link ảnh ngẫu nhiên để thử nghiệm cho tác giả
       function generateMockComicUrls() {
         const mockImages = [
           "https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80",
@@ -2295,12 +2561,9 @@
         ];
         document.getElementById("formChapterComicUrls").value =
           mockImages.join("\n");
-        showToast(
-          "Đã chèn 3 link ảnh thiên nhiên tuyệt đẹp làm mẫu thử nghiệm!",
-        );
+        showToast("✨ Đã tải 3 link ảnh thiên nhiên ngẫu nhiên!");
       }
 
-      // Tự động nạp danh sách truyện vào thẻ Select trong Form viết chương
       function populateStorySelect() {
         const select = document.getElementById("formChapterStorySelect");
         select.innerHTML = "";
@@ -2312,7 +2575,39 @@
         });
       }
 
-      // Lưu câu chuyện mới tạo lập
+      /* ---------------- BỘ BIÊN TẬP TRUYỆN (EDIT & SAVE) ---------------- */
+      function editStory(storyId) {
+        editingStoryId = storyId;
+        const story = stories.find((s) => s.id === storyId);
+        if (!story) return;
+
+        showStoryForm();
+
+        document.getElementById("storyFormTitle").textContent =
+          "📝 Chỉnh Sửa Thông Tin Truyện";
+        document.getElementById("btnSaveStory").textContent =
+          "Cập Nhật Thông Tin";
+
+        document.getElementById("formStoryTitle").value = story.title;
+        document.getElementById("formStoryAuthor").value = story.author;
+        document.getElementById("formStoryGenre").value =
+          story.genres.join(", ");
+        document.getElementById("formStoryDesc").value = story.description;
+        document.getElementById("formStoryCoverColor").value =
+          story.coverColor || "from-emerald-700 to-forest-950";
+        document.getElementById("formStoryType").value = story.type || "text";
+        document.getElementById("formStoryStatus").value =
+          story.status || "ongoing";
+
+        if (story.coverImage) {
+          tempStoryCoverBase64 = story.coverImage;
+          updateStoryCoverPreview(story.coverImage);
+        } else {
+          tempStoryCoverBase64 = "";
+          updateStoryCoverPreview("");
+        }
+      }
+
       function saveNewStory() {
         const title = document.getElementById("formStoryTitle").value.trim();
         const author = document.getElementById("formStoryAuthor").value.trim();
@@ -2322,9 +2617,10 @@
         const desc = document.getElementById("formStoryDesc").value.trim();
         const coverColor = document.getElementById("formStoryCoverColor").value;
         const type = document.getElementById("formStoryType").value;
+        const status = document.getElementById("formStoryStatus").value;
 
         if (!title || !author || !genresRaw || !desc) {
-          showToast("Vui lòng điền đầy đủ các thông tin có dấu sao (*)");
+          showToast("⚠️ Vui lòng điền đầy đủ các thông tin có dấu sao (*)");
           return;
         }
 
@@ -2333,35 +2629,62 @@
           .map((g) => g.trim())
           .filter((g) => g.length > 0);
 
-        const newStory = {
-          id: `story-${Date.now()}`,
-          title: title,
-          author: author,
-          type: type,
-          genres: genresArray,
-          description: desc,
-          coverColor: coverColor,
-          chapters: [],
-          comments: [],
-        };
+        if (editingStoryId) {
+          const storyIndex = stories.findIndex((s) => s.id === editingStoryId);
+          if (storyIndex !== -1) {
+            stories[storyIndex].title = title;
+            stories[storyIndex].author = author;
+            stories[storyIndex].genres = genresArray;
+            stories[storyIndex].description = desc;
+            stories[storyIndex].coverColor = coverColor;
+            stories[storyIndex].type = type;
+            stories[storyIndex].status = status;
+            stories[storyIndex].coverImage = tempStoryCoverBase64; // Lưu trữ Base64 ảnh bìa máy tính
+          }
+          showToast(`✅ Đã cập nhật truyện "${title}" thành công!`);
+          editingStoryId = null;
+        } else {
+          const newStory = {
+            id: `story-${Date.now()}`,
+            title: title,
+            author: author,
+            type: type,
+            status: status,
+            genres: genresArray,
+            description: desc,
+            coverColor: coverColor,
+            coverImage: tempStoryCoverBase64,
+            chapters: [],
+            comments: [],
+          };
 
-        stories.unshift(newStory);
+          stories.unshift(newStory);
+          showToast(`✅ Đăng thảo tác phẩm "${title}" thành công!`);
+        }
+
         saveToLocalStorage();
         updateStats();
         renderAuthorStoriesTable();
         renderGenreFilters();
+        renderStories();
 
-        // Đóng & Reset Form
         document.getElementById("storyFormBlock").classList.add("hidden");
-        document.getElementById("formStoryTitle").value = "";
-        document.getElementById("formStoryAuthor").value = "";
-        document.getElementById("formStoryGenre").value = "";
-        document.getElementById("formStoryDesc").value = "";
-
-        showToast(`Đăng thảo tác phẩm "${title}" thành công!`);
+        resetStoryForm();
       }
 
-      // Lưu chương mới viết cho truyện đã chọn
+      /* ---------------- BỘ BIÊN TẬP CHƯƠNG (EDIT & SAVE) ---------------- */
+      function toggleStoryStatus(storyId) {
+        const story = stories.find((s) => s.id === storyId);
+        if (!story) return;
+
+        story.status = story.status === "completed" ? "ongoing" : "completed";
+        saveToLocalStorage();
+        renderAuthorStoriesTable();
+        showToast(
+          `🔄 Đã chuyển "${story.title}" sang trạng thái: ${story.status === "completed" ? "Hoàn thành" : "Đang tiến hành"}`,
+        );
+      }
+
       function saveNewChapter() {
         const targetStoryId = document.getElementById(
           "formChapterStorySelect",
@@ -2369,12 +2692,12 @@
         const title = document.getElementById("formChapterTitle").value.trim();
 
         if (!targetStoryId) {
-          showToast("Vui lòng tạo truyện trước!");
+          showToast("⚠️ Vui lòng tạo truyện trước!");
           return;
         }
 
         if (!title) {
-          showToast("Vui lòng điền đủ tiêu đề chương!");
+          showToast("⚠️ Vui lòng điền đủ tiêu đề chương!");
           return;
         }
 
@@ -2383,71 +2706,196 @@
 
         if (!targetStory.chapters) targetStory.chapters = [];
 
-        let newChapter = {
-          id: `chap-${targetStoryId}-${Date.now()}`,
-          title: title,
-        };
+        let chapterPayload = {};
 
         if (targetStory.type === "comic") {
           if (activeComicUploadMethod === "local") {
-            // Dùng ảnh cục bộ tải lên
-            if (tempComicBase64Files.length === 0) {
-              showToast("Vui lòng tải ảnh từ máy tính lên trước khi xuất bản!");
+            if (tempComicBase64Files.length === 0 && !editingChapterId) {
+              showToast("⚠️ Vui lòng chọn tải ảnh từ máy tính!");
               return;
             }
-            // Bản chất chuỗi DataURL Base64 chính là URL hợp lệ để render lên thẻ <img>
-            newChapter.comicUrls = tempComicBase64Files.map((img) => img.data);
+            if (tempComicBase64Files.length > 0) {
+              chapterPayload.comicUrls = tempComicBase64Files.map(
+                (img) => img.data,
+              );
+            }
           } else {
-            // Dùng danh sách link ảnh trực tuyến
             const urlsText = document
               .getElementById("formChapterComicUrls")
               .value.trim();
-            if (!urlsText) {
-              showToast("Vui lòng nhập danh sách link ảnh cho truyện tranh!");
+            if (!urlsText && !editingChapterId) {
+              showToast("⚠️ Vui lòng nhập danh sách link ảnh!");
               return;
             }
-            const urlsArray = urlsText
-              .split("\n")
-              .map((url) => url.trim())
-              .filter((url) => url.length > 0);
-            newChapter.comicUrls = urlsArray;
+            if (urlsText) {
+              chapterPayload.comicUrls = urlsText
+                .split("\n")
+                .map((url) => url.trim())
+                .filter((url) => url.length > 0);
+            }
           }
         } else {
-          // Đối với truyện chữ
           const textContent = document
             .getElementById("formChapterContent")
             .value.trim();
-          if (!textContent) {
-            showToast("Vui lòng nhập nội dung chương chữ!");
+          if (!textContent && !editingChapterId) {
+            showToast("⚠️ Vui lòng nhập nội dung chương chữ!");
             return;
           }
-          newChapter.content = textContent;
+          if (textContent) {
+            chapterPayload.content = textContent;
+          }
         }
 
-        targetStory.chapters.push(newChapter);
+        if (editingChapterId) {
+          const chapIndex = targetStory.chapters.findIndex(
+            (c) => c.id === editingChapterId,
+          );
+          if (chapIndex !== -1) {
+            targetStory.chapters[chapIndex].title = title;
+            if (targetStory.type === "comic") {
+              if (chapterPayload.comicUrls) {
+                targetStory.chapters[chapIndex].comicUrls =
+                  chapterPayload.comicUrls;
+              }
+            } else {
+              if (chapterPayload.content) {
+                targetStory.chapters[chapIndex].content =
+                  chapterPayload.content;
+              }
+            }
+            showToast(`✅ Đã cập nhật xong chương "${title}"!`);
+          }
+          editingChapterId = null;
+        } else {
+          const newChapter = {
+            id: `chap-${targetStoryId}-${Date.now()}`,
+            title: title,
+            ...chapterPayload,
+          };
+          targetStory.chapters.push(newChapter);
+          showToast(`✅ Đã xuất bản xong chương "${title}"!`);
+        }
+
         saveToLocalStorage();
         updateStats();
         renderAuthorStoriesTable();
 
-        // Reset form
         document.getElementById("chapterFormBlock").classList.add("hidden");
         document.getElementById("formChapterTitle").value = "";
         document.getElementById("formChapterContent").value = "";
         document.getElementById("formChapterComicUrls").value = "";
-
-        // Xóa mảng ảnh tạm thời
         clearSelectedComicFiles();
 
-        showToast(`Hệ thống đã xuất bản chương mới thành công!`);
+        if (activeStoryIdForChapterMgmt) {
+          openChapterMgmt(activeStoryIdForChapterMgmt);
+        }
       }
 
-      // Bảng danh sách truyện của tác giả
+      /* ---------------- BỘ QUẢN LÝ CHƯƠNG CHI TIẾT (CHAPTER MANAGER) ---------------- */
+      function openChapterMgmt(storyId) {
+        activeStoryIdForChapterMgmt = storyId;
+        const story = stories.find((s) => s.id === storyId);
+        if (!story) return;
+
+        document.getElementById("chapterMgmtStoryTitle").textContent =
+          story.title;
+        const tbody = document.getElementById("chapterMgmtListTable");
+        tbody.innerHTML = "";
+
+        const chapters = story.chapters || [];
+        if (chapters.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="3" class="p-3 text-center text-slate-400 italic">Truyện này chưa có chương nào được viết.</td></tr>`;
+        } else {
+          chapters.forEach((chap) => {
+            const typeText =
+              story.type === "comic" ? "Trang ảnh" : "Truyện chữ";
+            const tr = document.createElement("tr");
+            tr.className = "hover:bg-slate-50 border-b border-slate-100";
+            tr.innerHTML = `
+                        <td class="p-3 font-semibold text-slate-800">${chap.title}</td>
+                        <td class="p-3 text-xs text-slate-500">${typeText}</td>
+                        <td class="p-3 text-right space-x-1">
+                            <button onclick="editChapter('${story.id}', '${chap.id}')" class="text-xs bg-emerald-50 hover:bg-emerald-100 text-emerald-800 px-2 py-1 rounded transition">Sửa</button>
+                            <button onclick="deleteChapter('${story.id}', '${chap.id}')" class="text-xs bg-red-50 hover:bg-red-100 text-red-600 px-2 py-1 rounded transition">Xóa</button>
+                        </td>
+                    `;
+            tbody.appendChild(tr);
+          });
+        }
+
+        document.getElementById("chapterMgmtBlock").classList.remove("hidden");
+        document.getElementById("storyFormBlock").classList.add("hidden");
+        document.getElementById("chapterFormBlock").classList.add("hidden");
+        document
+          .getElementById("chapterMgmtBlock")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      function editChapter(storyId, chapId) {
+        const story = stories.find((s) => s.id === storyId);
+        if (!story) return;
+
+        const chap = story.chapters.find((c) => c.id === chapId);
+        if (!chap) return;
+
+        editingChapterId = chapId;
+
+        // Mở biểu mẫu viết chương ở chế độ sửa
+        document.getElementById("chapterFormBlock").classList.remove("hidden");
+        document.getElementById("chapterFormTitle").textContent =
+          `📝 Chỉnh Sửa Chương: ${chap.title}`;
+        document.getElementById("btnSaveChapter").textContent =
+          "Cập Nhật Chương";
+
+        document.getElementById("formChapterStorySelect").value = storyId;
+        document.getElementById("formChapterTitle").value = chap.title;
+
+        handleChapterFormTypeToggle();
+
+        if (story.type === "comic") {
+          setComicUploadMethod("url");
+          document.getElementById("formChapterComicUrls").value = (
+            chap.comicUrls || []
+          ).join("\n");
+        } else {
+          document.getElementById("formChapterContent").value =
+            chap.content || "";
+        }
+
+        document
+          .getElementById("chapterFormBlock")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      function deleteChapter(storyId, chapId) {
+        const story = stories.find((s) => s.id === storyId);
+        if (!story) return;
+
+        const chap = story.chapters.find((c) => c.id === chapId);
+        if (!chap) return;
+
+        showConfirm(
+          `Bạn có muốn xóa vĩnh viễn chương "${chap.title}" khỏi tác phẩm?`,
+        ).then((confirmed) => {
+          if (confirmed) {
+            story.chapters = story.chapters.filter((c) => c.id !== chapId);
+            saveToLocalStorage();
+            updateStats();
+            renderAuthorStoriesTable();
+            openChapterMgmt(storyId);
+            showToast(`🗑️ Đã xóa chương "${chap.title}" thành công!`);
+          }
+        });
+      }
+
+      /* ---------------- BẢNG QUẢN TRỊ TRUYỆN CỦA TÁC GIẢ ---------------- */
       function renderAuthorStoriesTable() {
         const tbody = document.getElementById("authorStoriesTable");
         tbody.innerHTML = "";
 
         if (stories.length === 0) {
-          tbody.innerHTML = `<tr><td colspan="4" class="p-4 text-center text-slate-400 italic">Bạn chưa khởi tạo tác phẩm nào cả.</td></tr>`;
+          tbody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-slate-400 italic">Bạn chưa khởi tạo tác phẩm nào cả.</td></tr>`;
           return;
         }
 
@@ -2460,11 +2908,16 @@
               ? "text-teal-700 bg-teal-50 border border-teal-200"
               : "text-emerald-700 bg-emerald-50 border border-emerald-200";
 
+          const isCompleted = story.status === "completed";
+          const statusBadge = isCompleted
+            ? `<span class="bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded text-xs border border-emerald-200">Hoàn thành</span>`
+            : `<span class="bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded text-xs border border-amber-200">Đang tiến hành</span>`;
+
           const tr = document.createElement("tr");
           tr.className = "hover:bg-forest-50/50 transition duration-150";
           tr.innerHTML = `
                     <td class="p-3">
-                        <div class="font-bold text-forest-900 flex items-center gap-1.5">
+                        <div class="font-bold text-forest-900 flex items-center gap-1.5 flex-wrap">
                             ${story.title}
                             <span class="text-[9px] px-1.5 py-0.2 rounded font-semibold ${typeClass}">${typeText}</span>
                         </div>
@@ -2472,8 +2925,12 @@
                     </td>
                     <td class="p-3 text-xs text-slate-600">${story.genres.join(", ")}</td>
                     <td class="p-3 text-xs font-bold text-forest-800">${totalChaps} chương</td>
-                    <td class="p-3 text-right space-x-1">
-                        <button onclick="openStoryDetail('${story.id}')" class="text-xs bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 px-2.5 py-1 rounded transition">Xem thử</button>
+                    <td class="p-3">${statusBadge}</td>
+                    <td class="p-3 text-right space-y-1 md:space-y-0 md:space-x-1 whitespace-nowrap">
+                        <button onclick="editStory('${story.id}')" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 px-2.5 py-1 rounded transition">Sửa</button>
+                        <button onclick="toggleStoryStatus('${story.id}')" class="text-xs bg-teal-50 hover:bg-teal-100 text-teal-800 border border-teal-200 px-2.5 py-1 rounded transition">🔄 Trạng thái</button>
+                        <button onclick="openChapterMgmt('${story.id}')" class="text-xs bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 px-2.5 py-1 rounded transition">⚙️ Chương</button>
+                        <button onclick="openStoryDetail('${story.id}')" class="text-xs bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 px-2.5 py-1 rounded transition">Xem</button>
                         <button onclick="deleteStory('${story.id}')" class="text-xs bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 px-2.5 py-1 rounded transition">Xóa</button>
                     </td>
                 `;
@@ -2481,25 +2938,60 @@
         });
       }
 
-      // Xóa hẳn bộ truyện
       function deleteStory(storyId) {
         const story = stories.find((s) => s.id === storyId);
         if (!story) return;
 
-        const confirmDel = confirm(
+        showConfirm(
           `Bạn có thực sự chắc chắn muốn xóa tác phẩm "${story.title}" vĩnh viễn không?`,
-        );
-        if (confirmDel) {
-          stories = stories.filter((s) => s.id !== storyId);
-          saveToLocalStorage();
-          updateStats();
-          renderAuthorStoriesTable();
-          renderGenreFilters();
-          showToast("Đã xóa truyện thành công!");
+        ).then((confirmed) => {
+          if (confirmed) {
+            stories = stories.filter((s) => s.id !== storyId);
+            saveToLocalStorage();
+            updateStats();
+            renderAuthorStoriesTable();
+            renderGenreFilters();
+            showToast("🗑️ Đã xóa truyện thành công!");
+          }
+        });
+      }
+
+      /* ---------------- BỘ ĐIỀU KHIỂN HỘP THOẠI KHÁCH HÀNG (CUSTOM MODAL DIALOG) ---------------- */
+      function initCustomDialog() {
+        const btnCancel = document.getElementById("btnConfirmCancel");
+        const btnOK = document.getElementById("btnConfirmOK");
+
+        btnCancel.onclick = function () {
+          closeConfirmModal(false);
+        };
+
+        btnOK.onclick = function () {
+          closeConfirmModal(true);
+        };
+      }
+
+      function showConfirm(message, title = "Hành động nhạy cảm") {
+        document.getElementById("confirmModalTitle").textContent = title;
+        document.getElementById("confirmModalMessage").textContent = message;
+
+        const modal = document.getElementById("customConfirmModal");
+        modal.classList.remove("hidden");
+
+        return new Promise((resolve) => {
+          confirmPromiseResolve = resolve;
+        });
+      }
+
+      function closeConfirmModal(result) {
+        const modal = document.getElementById("customConfirmModal");
+        modal.classList.add("hidden");
+        if (confirmPromiseResolve) {
+          confirmPromiseResolve(result);
+          confirmPromiseResolve = null;
         }
       }
 
-      /* ---------------- BỘ ĐIỀU KHIỂN THÔNG BÁO CUSTOM (Toast) ---------------- */
+      /* ---------------- BỘ THÔNG BÁO CHỮ CHẠY (Toast Notification) ---------------- */
       function showToast(message) {
         const toast = document.createElement("div");
         toast.className =
