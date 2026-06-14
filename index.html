@@ -1843,7 +1843,7 @@
       window.onload = async function () {
         document.getElementById("displayAuthorToken").textContent =
           getAuthorToken();
-          initData();
+        await initData();
         renderGenreFilters();
         renderStories();
         renderAuthorStoriesTable();
@@ -1854,15 +1854,13 @@
       };
 
       // Lấy dữ liệu từ LocalStorage hoặc gieo mặc định
-      async function initData(){
+      async function initData() {
         stories = [];
-      
+
         try {
-          const snapshot = await getDocs(
-            collection(db, "stories")
-          );
-      
-         snapshot.forEach((doc) => {
+          const snapshot = await getDocs(collection(db, "Chương"));
+
+          snapshot.forEach((doc) => {
             stories.push({
               firebaseId: doc.id,
               ...doc.data(),
@@ -1872,11 +1870,9 @@
           renderStories();
           renderGenreFilters();
           updateStats();
-      
           if (stories.length === 0) {
             stories = [...DEFAULT_STORIES];
           }
-      
         } catch (error) {
           console.error(error);
           stories = [...DEFAULT_STORIES];
@@ -2821,10 +2817,7 @@
             comments: [],
           };
 
-          await addDoc(
-          collection(db, "stories"),
-          newStory
-        );
+          await addDoc(collection(db, "Chương"), data);
           showToast(`✅ Đăng thảo tác phẩm "${title}" thành công!`);
         }
 
@@ -3241,32 +3234,32 @@
       }
     </script>
     <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-    
-    import {
-      getFirestore,
-      collection,
-      getDocs,
-      addDoc
-    } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
-    
-    const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "mytale-8cb56.firebaseapp.com",
-      projectId: "mytale-8cb56",
-      storageBucket: "mytale-8cb56.firebasestorage.app",
-      messagingSenderId: "105858471810",
-      appId: "1:105858471810:web:a910b4582a15bed7eba19b",
-      measurementId: "G-2CY0WRFRW8"
-    };
-    
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    
-    window.db = db;
-    window.collection = collection;
-    window.getDocs = getDocs;
-    window.addDoc = addDoc;
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+
+      import {
+        getFirestore,
+        collection,
+        getDocs,
+        addDoc,
+      } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "mytale-8cb56.firebaseapp.com",
+        projectId: "mytale-8cb56",
+        storageBucket: "mytale-8cb56.firebasestorage.app",
+        messagingSenderId: "105858471810",
+        appId: "1:105858471810:web:a910b4582a15bed7eba19b",
+        measurementId: "G-2CY0WRFRW8",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+
+      window.db = db;
+      window.collection = collection;
+      window.getDocs = getDocs;
+      window.addDoc = addDoc;
     </script>
   </body>
 </html>
