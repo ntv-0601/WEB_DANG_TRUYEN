@@ -1858,7 +1858,7 @@
         stories = [];
 
         try {
-          const snapshot = await getDocs(collection(db, "chapters"));
+          const snapshot = await getDocs(collection(db, "stories"));
 
           snapshot.forEach((doc) => {
             stories.push({
