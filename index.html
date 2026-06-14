@@ -1862,8 +1862,11 @@
             collection(db, "stories")
           );
       
-          snapshot.forEach((doc) => {
-            stories.push(doc.data());
+         snapshot.forEach((doc) => {
+            stories.push({
+              firebaseId: doc.id,
+              ...doc.data(),
+            });
           });
       
           if (stories.length === 0) {
