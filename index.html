@@ -1843,7 +1843,7 @@
       window.onload = function () {
         document.getElementById("displayAuthorToken").textContent =
           getAuthorToken();
-        initData();
+        await initData();
         renderGenreFilters();
         renderStories();
         renderAuthorStoriesTable();
@@ -1854,25 +1854,25 @@
       };
 
       // Lấy dữ liệu từ LocalStorage hoặc gieo mặc định
-      function initData() {
-        const localData = localStorage.getItem("greennovel_stories");
-        if (localData) {
-          try {
-            stories = JSON.parse(localData);
-            // Đồng bộ dữ liệu cũ
-            stories.forEach((s) => {
-              if (!s.type) s.type = "text";
-              if (!s.status) s.status = "ongoing";
-              if (s.coverImage === undefined) s.coverImage = "";
-              // Nếu truyện cũ chưa có creatorToken thì gán tạm là "system" để xem thử
-              if (!s.creatorToken) s.creatorToken = "system";
-            });
-          } catch (e) {
-            stories = DEFAULT_STORIES;
+      async function initData(){
+        stories = [];
+      
+        try {
+          const snapshot = await getDocs(
+            collection(db, "stories")
+          );
+      
+          snapshot.forEach((doc) => {
+            stories.push(doc.data());
+          });
+      
+          if (stories.length === 0) {
+            stories = [...DEFAULT_STORIES];
           }
-        } else {
-          stories = DEFAULT_STORIES;
-          saveToLocalStorage();
+      
+        } catch (error) {
+          console.error(error);
+          stories = [...DEFAULT_STORIES];
         }
       }
 
@@ -2814,7 +2814,10 @@
             comments: [],
           };
 
-          stories.unshift(newStory);
+          await addDoc(
+          collection(db, "stories"),
+          newStory
+        );
           showToast(`✅ Đăng thảo tác phẩm "${title}" thành công!`);
         }
 
