@@ -1840,7 +1840,7 @@
       }
 
       // Khởi chạy khi tài liệu tải xong
-      window.onload = function () {
+      window.onload = async function () {
         document.getElementById("displayAuthorToken").textContent =
           getAuthorToken();
         await initData();
