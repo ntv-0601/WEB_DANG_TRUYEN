@@ -1868,6 +1868,10 @@
               ...doc.data(),
             });
           });
+          console.log("Đã tải:", stories.length, "truyện");
+          renderStories();
+          renderGenreFilters();
+          updateStats();
       
           if (stories.length === 0) {
             stories = [...DEFAULT_STORIES];
