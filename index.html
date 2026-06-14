@@ -1858,7 +1858,7 @@
         stories = [];
 
         try {
-          const snapshot = await getDocs(collection(db, "Chương"));
+          const snapshot = await getDocs(collection(db, "chapters"));
 
           snapshot.forEach((doc) => {
             stories.push({
@@ -2817,7 +2817,7 @@
             comments: [],
           };
 
-          await addDoc(collection(db, "Chương"), data);
+          await addDoc(collection(db, "chapters"), data);
           showToast(`✅ Đăng thảo tác phẩm "${title}" thành công!`);
         }
 
