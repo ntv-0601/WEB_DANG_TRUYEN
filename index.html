@@ -1699,19 +1699,19 @@
               id: "chap-1-1",
               title: "Chương 1: Lạc Lối Trong Lam Sương",
               content: `Màn sương dày đặc phủ kín những lối mòn dẫn lên đỉnh ngọn núi Lam Thạch. Tiêu Phong bước đi những bước mệt mỏi, mồ hôi ướt đẫm áo vải thô sơ. Hàng cây cổ thụ đứng hai bên đường, tựa như những chiến binh sừng sững gác giữ bí mật rừng thẳm.
-                        
-                        Ầm ầm! Tiếng gầm rú bất chợt từ phía thung lũng dội tới khiến lòng cậu thót lại. Lũ dã lang đã bắt đầu săn mồi rồi. Tiêu Phong siết chặt chiếc rìu đá đã mẻ cán, nhìn bâng quơ quanh rừng sương mù. 
-                        
-                        Đột nhiên, phía trước hé ra một luồng sáng xanh biếc lạ kỳ rực lên từ một vết rách không gian ảo ảnh. Một con bướm lục bảo bay ngang mặt, chập chờn gọi mời Tiêu Phong dấn bước chân vào nơi chưa bao giờ tồn tại trên bản đồ thôn nhân.`,
+
+                              Ầm ầm! Tiếng gầm rú bất chợt từ phía thung lũng dội tới khiến lòng cậu thót lại. Lũ dã lang đã bắt đầu săn mồi rồi. Tiêu Phong siết chặt chiếc rìu đá đã mẻ cán, nhìn bâng quơ quanh rừng sương mù.
+
+                              Đột nhiên, phía trước hé ra một luồng sáng xanh biếc lạ kỳ rực lên từ một vết rách không gian ảo ảnh. Một con bướm lục bảo bay ngang mặt, chập chờn gọi mời Tiêu Phong dấn bước chân vào nơi chưa bao giờ tồn tại trên bản đồ thôn nhân.`,
             },
             {
               id: "chap-1-2",
               title: "Chương 2: Thần Thụ Thượng Cổ",
               content: `Vượt qua khe hẹp ảo cảnh, không khí mát dịu lạ lùng nhanh chóng xoa dịu đi mệt nhọc của Tiêu Phong. Cậu ngỡ ngàng trước phong cảnh đẹp như tiên cảnh bồng lai đang dần hiển hiện trước tầm mắt.
-                        
-                        Mặt đất xanh rờn với muôn loài rêu mềm mại thắp sáng, những dòng suối trôi lặng lờ sáng rực tựa dòng lỏng bạc. Và sừng sững giữa bầu trời xanh biếc ấy là Thần Thụ Khỏng Lồ với vòm lá sum suê đính vô vàn viên tinh thạch lục sắc lấp lánh.
-                        
-                        Nhưng điều khiến tim Phong rụng rời chính là những vệt tà khí màu tím đen đang bám rễ lan dần lên thân gỗ vàng rực của thần cây. Có tiếng thì thầm cất lên vang vọng tâm trí cậu: "Độc giả định mệnh, người đã tìm được sinh mệnh cổ của rừng rồi..."`,
+
+                              Mặt đất xanh rờn với muôn loài rêu mềm mại thắp sáng, những dòng suối trôi lặng lờ sáng rực tựa dòng lỏng bạc. Và sừng sững giữa bầu trời xanh biếc ấy là Thần Thụ Khỏng Lồ với vòm lá sum suê đính vô vàn viên tinh thạch lục sắc lấp lánh.
+
+                              Nhưng điều khiến tim Phong rụng rời chính là những vệt tà khí màu tím đen đang bám rễ lan dần lên thân gỗ vàng rực của thần cây. Có tiếng thì thầm cất lên vang vọng tâm trí cậu: "Độc giả định mệnh, người đã tìm được sinh mệnh cổ của rừng rồi..."`,
             },
           ],
           comments: [
@@ -1798,7 +1798,6 @@
         return token;
       }
 
-      
       function copyAuthorToken() {
         const token = getAuthorToken();
         // Khởi tạo một textarea phụ để xử lý sao chép an toàn trong iframe
@@ -2067,45 +2066,45 @@
           let coverHtml = "";
           if (story.coverImage) {
             coverHtml = `
-                        <div class="h-44 bg-cover bg-center relative w-full group-hover:brightness-105 transition-all" style="background-image: url('${story.coverImage}')">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                    `;
+                              <div class="h-44 bg-cover bg-center relative w-full group-hover:brightness-105 transition-all" style="background-image: url('${story.coverImage}')">
+                                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                          `;
           } else {
             coverHtml = `
-                        <div class="h-44 bg-gradient-to-br ${coverStyle} relative flex items-center justify-center p-3 text-white text-center font-serif font-bold text-base shadow-inner group-hover:brightness-105 transition-all">
-                            <span class="text-shadow-sm line-clamp-2">${story.title}</span>
-                    `;
+                              <div class="h-44 bg-gradient-to-br ${coverStyle} relative flex items-center justify-center p-3 text-white text-center font-serif font-bold text-base shadow-inner group-hover:brightness-105 transition-all">
+                                  <span class="text-shadow-sm line-clamp-2">${story.title}</span>
+                          `;
           }
 
           card.innerHTML = `
-                    <div>
-                        ${coverHtml}
-                            <span class="absolute top-2 left-2 text-[9px] font-bold uppercase px-2 py-0.5 rounded shadow-sm ${typeBadgeColor}">${typeLabel}</span>
-                            <div class="absolute bottom-2 left-2 right-2 flex justify-between text-[10px] text-emerald-100 font-sans">
-                                <span class="truncate max-w-[120px] font-semibold">${story.author}</span>
-                                <span class="font-bold text-white">${totalChapters} chương</span>
-                            </div>
-                        </div>
-                        <!-- Thông tin chữ -->
-                        <div class="p-4 space-y-2">
-                            <div class="flex flex-wrap gap-1">
-                                ${story.genres
-                                  .slice(0, 2)
-                                  .map(
-                                    (g) =>
-                                      `<span class="bg-forest-50 text-forest-800 text-[10px] font-bold px-2 py-0.5 rounded border border-forest-100">${g}</span>`,
-                                  )
-                                  .join("")}
-                            </div>
-                            <h3 class="font-bold text-forest-900 group-hover:text-emerald-700 transition font-serif line-clamp-1">${story.title}</h3>
-                            <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed">${story.description}</p>
-                        </div>
-                    </div>
-                    <div class="p-4 pt-0 border-t border-forest-50 flex items-center justify-between text-xs text-forest-700 font-semibold bg-forest-50/50">
-                        <span>Đọc tác phẩm</span>
-                        <svg class="w-4 h-4 text-emerald-600 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                    </div>
-                `;
+                          <div>
+                              ${coverHtml}
+                                  <span class="absolute top-2 left-2 text-[9px] font-bold uppercase px-2 py-0.5 rounded shadow-sm ${typeBadgeColor}">${typeLabel}</span>
+                                  <div class="absolute bottom-2 left-2 right-2 flex justify-between text-[10px] text-emerald-100 font-sans">
+                                      <span class="truncate max-w-[120px] font-semibold">${story.author}</span>
+                                      <span class="font-bold text-white">${totalChapters} chương</span>
+                                  </div>
+                              </div>
+                              <!-- Thông tin chữ -->
+                              <div class="p-4 space-y-2">
+                                  <div class="flex flex-wrap gap-1">
+                                      ${story.genres
+                                        .slice(0, 2)
+                                        .map(
+                                          (g) =>
+                                            `<span class="bg-forest-50 text-forest-800 text-[10px] font-bold px-2 py-0.5 rounded border border-forest-100">${g}</span>`,
+                                        )
+                                        .join("")}
+                                  </div>
+                                  <h3 class="font-bold text-forest-900 group-hover:text-emerald-700 transition font-serif line-clamp-1">${story.title}</h3>
+                                  <p class="text-xs text-slate-500 line-clamp-2 leading-relaxed">${story.description}</p>
+                              </div>
+                          </div>
+                          <div class="p-4 pt-0 border-t border-forest-50 flex items-center justify-between text-xs text-forest-700 font-semibold bg-forest-50/50">
+                              <span>Đọc tác phẩm</span>
+                              <svg class="w-4 h-4 text-emerald-600 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                          </div>
+                      `;
           grid.appendChild(card);
         });
       }
@@ -2206,9 +2205,9 @@
               "text-left text-sm py-2.5 px-4 rounded-xl border border-forest-100 hover:border-emerald-300 bg-forest-50/50 hover:bg-emerald-50 text-forest-900 font-medium transition flex items-center justify-between group";
             btn.onclick = () => startReading(index);
             btn.innerHTML = `
-                        <span class="group-hover:text-emerald-800 transition line-clamp-1">${chapter.title}</span>
-                        <svg class="w-4 h-4 text-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    `;
+                              <span class="group-hover:text-emerald-800 transition line-clamp-1">${chapter.title}</span>
+                              <svg class="w-4 h-4 text-emerald-600 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                          `;
             chapListContainer.appendChild(btn);
           });
         }
@@ -2248,15 +2247,15 @@
           item.className = "py-3 flex gap-4 text-sm items-start";
           const initial = cmt.author ? cmt.author.charAt(0).toUpperCase() : "A";
           item.innerHTML = `
-                    <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center flex-shrink-0">${initial}</div>
-                    <div class="flex-grow">
-                        <div class="flex items-center justify-between">
-                            <span class="font-semibold text-forest-900">${cmt.author || "Vô danh"}</span>
-                            <span class="text-[10px] text-slate-400">${cmt.date || "Gần đây"}</span>
-                        </div>
-                        <p class="text-slate-600 mt-1 leading-relaxed">${cmt.text}</p>
-                    </div>
-                `;
+                          <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-800 font-bold flex items-center justify-center flex-shrink-0">${initial}</div>
+                          <div class="flex-grow">
+                              <div class="flex items-center justify-between">
+                                  <span class="font-semibold text-forest-900">${cmt.author || "Vô danh"}</span>
+                                  <span class="text-[10px] text-slate-400">${cmt.date || "Gần đây"}</span>
+                              </div>
+                              <p class="text-slate-600 mt-1 leading-relaxed">${cmt.text}</p>
+                          </div>
+                      `;
           list.appendChild(item);
         });
       }
@@ -2318,11 +2317,11 @@
             let imagesHtml = `<div class="flex flex-col items-center gap-3 max-w-2xl mx-auto">`;
             urls.forEach((url, i) => {
               imagesHtml += `
-                            <div class="relative w-full rounded-xl overflow-hidden border border-forest-100 shadow-sm bg-black/5">
-                                <span class="absolute top-2 left-2 bg-black/60 text-white text-[9px] px-2 py-0.5 rounded-full font-sans">Trang ${i + 1}</span>
-                                <img src="${url}" alt="Trang ${i + 1}" class="w-full h-auto object-contain block mx-auto" onerror="this.src='https://placehold.co/600x900/15803d/ffffff?text=Loi+tai+anh+Trang+${i + 1}'">
-                            </div>
-                        `;
+                                  <div class="relative w-full rounded-xl overflow-hidden border border-forest-100 shadow-sm bg-black/5">
+                                      <span class="absolute top-2 left-2 bg-black/60 text-white text-[9px] px-2 py-0.5 rounded-full font-sans">Trang ${i + 1}</span>
+                                      <img src="${url}" alt="Trang ${i + 1}" class="w-full h-auto object-contain block mx-auto" onerror="this.src='https://placehold.co/600x900/15803d/ffffff?text=Loi+tai+anh+Trang+${i + 1}'">
+                                  </div>
+                              `;
             });
             imagesHtml += `</div>`;
             bodyTextContainer.innerHTML = imagesHtml;
@@ -2667,14 +2666,14 @@
           thumb.className =
             "relative group h-24 bg-slate-100 rounded-lg overflow-hidden border border-slate-300 shadow-inner";
           thumb.innerHTML = `
-                    <img src="${fileObj.data}" class="w-full h-full object-cover" alt="Trang ${index + 1}">
-                    <span class="absolute bottom-1 left-1 bg-black/60 text-white text-[9px] px-1 rounded font-sans truncate max-w-[90%]">
-                        P.${index + 1}
-                    </span>
-                    <button type="button" onclick="removeSelectedComicFile(${index})" class="absolute top-1 right-1 bg-red-600 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center hover:bg-red-700 transition opacity-0 group-hover:opacity-100 shadow-md">
-                        &times;
-                    </button>
-                `;
+                          <img src="${fileObj.data}" class="w-full h-full object-cover" alt="Trang ${index + 1}">
+                          <span class="absolute bottom-1 left-1 bg-black/60 text-white text-[9px] px-1 rounded font-sans truncate max-w-[90%]">
+                              P.${index + 1}
+                          </span>
+                          <button type="button" onclick="removeSelectedComicFile(${index})" class="absolute top-1 right-1 bg-red-600 text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center hover:bg-red-700 transition opacity-0 group-hover:opacity-100 shadow-md">
+                              &times;
+                          </button>
+                      `;
           grid.appendChild(thumb);
         });
       }
@@ -2818,12 +2817,14 @@
           };
 
           try {
-            await addDoc(collection(db, "stories"), newStory);
+            const docRef = await addDoc(collection(db, "stories"), newStory);
+
+            console.log("✔ Đã tạo truyện với ID:", docRef.id);
+
             showToast(`✅ Đăng truyện "${title}" thành công!`);
-          } catch (e) {
-            console.log(e);
-            showToast("❌ Lỗi khi đăng truyện");
-          }
+          } catch (error) {
+            console.log("❌ Lỗi khi đăng truyện:", error);
+            showToast("❌ Không đăng được truyện");
         }
 
         saveToLocalStorage();
@@ -2993,13 +2994,13 @@
             const tr = document.createElement("tr");
             tr.className = "hover:bg-slate-50 border-b border-slate-100";
             tr.innerHTML = `
-                        <td class="p-3 font-semibold text-slate-800">${chap.title}</td>
-                        <td class="p-3 text-xs text-slate-500">${typeText}</td>
-                        <td class="p-3 text-right space-x-1">
-                            <button onclick="editChapter('${story.id}', '${chap.id}')" class="text-xs bg-emerald-50 hover:bg-emerald-100 text-emerald-800 px-2 py-1 rounded transition">Sửa</button>
-                            <button onclick="deleteChapter('${story.id}', '${chap.id}')" class="text-xs bg-red-50 hover:bg-red-100 text-red-600 px-2 py-1 rounded transition">Xóa</button>
-                        </td>
-                    `;
+                              <td class="p-3 font-semibold text-slate-800">${chap.title}</td>
+                              <td class="p-3 text-xs text-slate-500">${typeText}</td>
+                              <td class="p-3 text-right space-x-1">
+                                  <button onclick="editChapter('${story.id}', '${chap.id}')" class="text-xs bg-emerald-50 hover:bg-emerald-100 text-emerald-800 px-2 py-1 rounded transition">Sửa</button>
+                                  <button onclick="deleteChapter('${story.id}', '${chap.id}')" class="text-xs bg-red-50 hover:bg-red-100 text-red-600 px-2 py-1 rounded transition">Xóa</button>
+                              </td>
+                          `;
             tbody.appendChild(tr);
           });
         }
@@ -3119,38 +3120,38 @@
           if (isCreator) {
             // Nếu là chính chủ thì hiện đầy đủ quyền Sửa / Xóa / Chương
             actionHtml = `
-                        <button onclick="editStory('${story.id}')" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 px-2.5 py-1 rounded transition active:scale-95">Sửa</button>
-                        <button onclick="toggleStoryStatus('${story.id}')" class="text-xs bg-teal-50 hover:bg-teal-100 text-teal-800 border border-teal-200 px-2.5 py-1 rounded transition active:scale-95">🔄 Trạng thái</button>
-                        <button onclick="openChapterMgmt('${story.id}')" class="text-xs bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 px-2.5 py-1 rounded transition active:scale-95">⚙️ Chương</button>
-                        <button onclick="openStoryDetail('${story.id}')" class="text-xs bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 px-2.5 py-1 rounded transition">Xem</button>
-                        <button onclick="deleteStory('${story.id}')" class="text-xs bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 px-2.5 py-1 rounded transition active:scale-95">Xóa</button>
-                    `;
+                              <button onclick="editStory('${story.id}')" class="text-xs bg-amber-50 hover:bg-amber-100 text-amber-800 border border-amber-200 px-2.5 py-1 rounded transition active:scale-95">Sửa</button>
+                              <button onclick="toggleStoryStatus('${story.id}')" class="text-xs bg-teal-50 hover:bg-teal-100 text-teal-800 border border-teal-200 px-2.5 py-1 rounded transition active:scale-95">🔄 Trạng thái</button>
+                              <button onclick="openChapterMgmt('${story.id}')" class="text-xs bg-blue-50 hover:bg-blue-100 text-blue-800 border border-blue-200 px-2.5 py-1 rounded transition active:scale-95">⚙️ Chương</button>
+                              <button onclick="openStoryDetail('${story.id}')" class="text-xs bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 px-2.5 py-1 rounded transition">Xem</button>
+                              <button onclick="deleteStory('${story.id}')" class="text-xs bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 px-2.5 py-1 rounded transition active:scale-95">Xóa</button>
+                          `;
           } else {
             // Nếu là của người khác thì chỉ cho phép "Xem" và hiện dòng chữ giải thích bản quyền
             actionHtml = `
-                        <span class="text-xs text-slate-400 italic mr-2">🔒 Chỉ xem (Tác giả khác)</span>
-                        <button onclick="openStoryDetail('${story.id}')" class="text-xs bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 px-2.5 py-1 rounded transition">Xem chi tiết</button>
-                    `;
+                              <span class="text-xs text-slate-400 italic mr-2">🔒 Chỉ xem (Tác giả khác)</span>
+                              <button onclick="openStoryDetail('${story.id}')" class="text-xs bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 px-2.5 py-1 rounded transition">Xem chi tiết</button>
+                          `;
           }
 
           const tr = document.createElement("tr");
           tr.className = "hover:bg-forest-50/50 transition duration-150";
           tr.innerHTML = `
-                    <td class="p-3">
-                        <div class="font-bold text-forest-900 flex items-center gap-1.5 flex-wrap">
-                            ${story.title}
-                            <span class="text-[9px] px-1.5 py-0.2 rounded font-semibold ${typeClass}">${typeText}</span>
-                            ${ownershipBadge}
-                        </div>
-                        <div class="text-xs text-slate-400">Tác giả: ${story.author}</div>
-                    </td>
-                    <td class="p-3 text-xs text-slate-600">${story.genres.join(", ")}</td>
-                    <td class="p-3 text-xs font-bold text-forest-800">${totalChaps} chương</td>
-                    <td class="p-3">${statusBadge}</td>
-                    <td class="p-3 text-right space-y-1 md:space-y-0 md:space-x-1 whitespace-nowrap">
-                        ${actionHtml}
-                    </td>
-                `;
+                          <td class="p-3">
+                              <div class="font-bold text-forest-900 flex items-center gap-1.5 flex-wrap">
+                                  ${story.title}
+                                  <span class="text-[9px] px-1.5 py-0.2 rounded font-semibold ${typeClass}">${typeText}</span>
+                                  ${ownershipBadge}
+                              </div>
+                              <div class="text-xs text-slate-400">Tác giả: ${story.author}</div>
+                          </td>
+                          <td class="p-3 text-xs text-slate-600">${story.genres.join(", ")}</td>
+                          <td class="p-3 text-xs font-bold text-forest-800">${totalChaps} chương</td>
+                          <td class="p-3">${statusBadge}</td>
+                          <td class="p-3 text-right space-y-1 md:space-y-0 md:space-x-1 whitespace-nowrap">
+                              ${actionHtml}
+                          </td>
+                      `;
           tbody.appendChild(tr);
         });
       }
@@ -3220,9 +3221,9 @@
         toast.className =
           "fixed bottom-5 right-5 bg-forest-900 text-white font-semibold py-3 px-5 rounded-xl shadow-2xl z-50 transform translate-y-10 opacity-0 transition-all duration-300 flex items-center space-x-2 border-l-4 border-emerald-500 text-sm max-w-sm";
         toast.innerHTML = `
-                <svg class="w-5 h-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                <span>${message}</span>
-            `;
+                      <svg class="w-5 h-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                      <span>${message}</span>
+                  `;
 
         document.body.appendChild(toast);
 
