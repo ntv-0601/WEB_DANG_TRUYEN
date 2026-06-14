@@ -2817,14 +2817,12 @@
           };
 
           try {
-            const docRef = await addDoc(collection(db, "stories"), newStory);
-
-            console.log("✔ Đã tạo truyện với ID:", docRef.id);
-
+            collection(db, "stories");
             showToast(`✅ Đăng truyện "${title}" thành công!`);
-          } catch (error) {
-            console.log("❌ Lỗi khi đăng truyện:", error);
-            showToast("❌ Không đăng được truyện");
+          } catch (e) {
+            console.log(e);
+            showToast("❌ Lỗi khi đăng truyện");
+          }
         }
 
         saveToLocalStorage();
@@ -3247,8 +3245,6 @@
         collection,
         getDocs,
         addDoc,
-        doc, // <--- Thêm cái này
-        updateDoc, // <--- Thêm cái này
       } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
       const firebaseConfig = {
