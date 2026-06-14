@@ -2858,7 +2858,7 @@
         );
       }
 
-      function saveNewChapter() {
+      async function saveNewChapter() {
         const targetStoryId = document.getElementById(
           "formChapterStorySelect",
         ).value;
@@ -3247,6 +3247,8 @@
         collection,
         getDocs,
         addDoc,
+        doc, // <--- Thêm cái này
+        updateDoc, // <--- Thêm cái này
       } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
       const firebaseConfig = {
