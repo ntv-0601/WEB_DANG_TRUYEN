@@ -2801,24 +2801,28 @@
           showToast(`✅ Đã cập nhật truyện "${title}" thành công!`);
           editingStoryId = null;
         } else {
-          // Tạo truyện mới luôn có creatorToken gắn theo máy hiện tại
           const newStory = {
-            id: `story-${Date.now()}`,
-            title: title,
-            author: author,
-            type: type,
-            status: status,
+            title,
+            author,
+            type,
+            status,
             genres: genresArray,
             description: desc,
-            coverColor: coverColor,
+            coverColor,
             coverImage: tempStoryCoverBase64,
-            creatorToken: getAuthorToken(), // Sở hữu vĩnh viễn theo bút danh máy này
+            creatorToken: getAuthorToken(),
             chapters: [],
             comments: [],
+            createdAt: Date.now(),
           };
 
-          await addDoc(collection(db, "chapters"), data);
-          showToast(`✅ Đăng thảo tác phẩm "${title}" thành công!`);
+          try {
+            await addDoc(collection(db, "stories"), newStory);
+            showToast(`✅ Đăng truyện "${title}" thành công!`);
+          } catch (e) {
+            console.log(e);
+            showToast("❌ Lỗi khi đăng truyện");
+          }
         }
 
         saveToLocalStorage();
