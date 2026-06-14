@@ -3230,5 +3230,33 @@
         }, 4000);
       }
     </script>
+    <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+    
+    import {
+      getFirestore,
+      collection,
+      getDocs,
+      addDoc
+    } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+    
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "mytale-8cb56.firebaseapp.com",
+      projectId: "mytale-8cb56",
+      storageBucket: "mytale-8cb56.firebasestorage.app",
+      messagingSenderId: "105858471810",
+      appId: "1:105858471810:web:a910b4582a15bed7eba19b",
+      measurementId: "G-2CY0WRFRW8"
+    };
+    
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    
+    window.db = db;
+    window.collection = collection;
+    window.getDocs = getDocs;
+    window.addDoc = addDoc;
+    </script>
   </body>
 </html>
