@@ -2952,8 +2952,22 @@
             title: title,
             ...chapterPayload,
           };
+
           targetStory.chapters.push(newChapter);
-          showToast(`✅ Đã xuất bản xong chương "${title}"!`);
+
+          try {
+            await updateDoc(
+              doc(db, "stories", targetStory.firebaseId),
+              {
+                chapters: targetStory.chapters
+              }
+            );
+
+            showToast(`✅ Đã xuất bản xong chương "${title}"!`);
+          } catch (error) {
+            console.error(error);
+            showToast("❌ Không lưu được chương lên Firebase!");
+          }
         }
 
         saveToLocalStorage();
@@ -3239,14 +3253,14 @@
     </script>
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-
       import {
         getFirestore,
         collection,
         getDocs,
         addDoc,
-      } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
-
+        updateDoc,
+        doc,
+      } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
       const firebaseConfig = {
         apiKey: "YOUR_API_KEY",
         authDomain: "mytale-8cb56.firebaseapp.com",
